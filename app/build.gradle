@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+
+        applicationId globalConfiguration["androidApplicationId"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+
+        testInstrumentationRunner globalConfiguration["testInstrumentationRunner"]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+    }
+
+    buildTypes {
+        all {
+            buildConfigField("String", "BASE_URL", "\"https://randomuser.me/\"")
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            versionNameSuffix = '-release'
+        }
+
+        debug {
+            versionNameSuffix = '-debug'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    //Compile time dependencies
+    kapt dependencies.lifecycleCompiler
+    kapt dependencies.daggerCompiler
+
+    // Application dependencies
+    implementation dependencies.kotlinStdLib
+    implementation dependencies.appCompat
+    implementation dependencies.ktxCore
+    implementation dependencies.constraintLayout
+    implementation dependencies.viewModel
+    implementation dependencies.liveData
+    implementation dependencies.lifecycleExtensions
+    implementation dependencies.recyclerView
+    implementation dependencies.material
+    implementation dependencies.glide
+    implementation dependencies.dagger
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+    implementation dependencies.okHttpLoggingInterceptor
+    implementation dependencies.navigationFragment
+    implementation dependencies.navigationUi
+    implementation dependencies.pagingLibrary
+    implementation dependencies.timber
+
+    // Unit/Android tests dependencies
+    testImplementation testDependencies.junit
+
+    // Acceptance tests dependencies
+    androidTestImplementation testDependencies.espresso
+}

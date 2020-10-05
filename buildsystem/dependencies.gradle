@@ -1,0 +1,69 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "29.0.3"
+    androidMinSdkVersion = 15
+    androidTargetSdkVersion = 29
+    androidCompileSdkVersion = 29
+
+    //Libraries
+    kotlinVersion = "1.4.10"
+    jetpackVersion = '1.1.0'
+    constraintLayoutVersion = '1.1.3'
+    ktxVersion = '1.3.0'
+    daggerVersion = '2.8'
+    navigationVersion = '2.3.0'
+    pagingVersion = '2.1.2'
+    lifecycleVersion = '2.2.0'
+    lifecycleExtensionsVersion = '2.2.0'
+    glideVersion = '4.0.0'
+    recyclerViewVersion = '21.0.3'
+    rxJavaVersion = '2.0.2'
+    rxAndroidVersion = '2.0.1'
+    gsonVersion = '2.3'
+    okHttpVersion = '2.5.0'
+    retrofitVersion = '2.9.0'
+    okHttpLoggingInterceptorVersion = '3.8.1'
+    timberVersion = '4.7.1'
+    materialVersion = '1.2.0'
+
+    //Testing
+    jUnitVersion = '4.13'
+    espressoVersion = '3.2.0'
+
+    dependencies = [
+            kotlinStdLib:               "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            appCompat:                  "androidx.appcompat:appcompat:$jetpackVersion",
+            constraintLayout:           "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            ktxCore:                    "androidx.core:core-ktx:$ktxVersion",
+            lifecycleCompiler:          "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
+            viewModel:                  "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            liveData:                   "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            lifecycleExtensions:        "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion",
+            navigationFragment:         "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi:               "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            pagingLibrary:              "androidx.paging:paging-runtime:$pagingVersion",
+            daggerCompiler:             "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger:                     "com.google.dagger:dagger:$daggerVersion",
+            glide:                      "com.github.bumptech.glide:glide:$glideVersion",
+            material:                   "com.google.android.material:material:$materialVersion",
+            recyclerView:               "com.android.support:recyclerview-v7:$recyclerViewVersion",
+            rxJava:                     "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid:                  "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            retrofit:                   "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGson:               "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            okHttpLoggingInterceptor:   "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptorVersion",
+            timber:                     "com.jakewharton.timber:timber:$timberVersion"
+    ]
+
+    testDependencies = [
+            junit:              "junit:junit:$jUnitVersion",
+            espresso:           "androidx.test.espresso:espresso-core:$espressoVersion"
+    ]
+}
