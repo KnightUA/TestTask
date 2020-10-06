@@ -9,6 +9,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ua.knight.testtask.BuildConfig
+import ua.knight.testtask.data.repository.UsersNetworkRxRepository
+import ua.knight.testtask.data.repository.UsersRxRepository
 import javax.inject.Singleton
 
 @Module
@@ -33,4 +35,6 @@ class ApplicationModule(private val application : Application) {
 
         return okHttpClientBuilder.build()
     }
+
+    @Provides @Singleton fun provideUsersRxRepository(dataSource : UsersNetworkRxRepository) : UsersRxRepository = dataSource
 }
