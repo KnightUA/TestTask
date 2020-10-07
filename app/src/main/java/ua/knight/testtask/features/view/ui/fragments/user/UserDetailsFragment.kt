@@ -78,10 +78,9 @@ class UserDetailsFragment : BaseFragment() {
             permissionGranted() -> {
                 openCallApp()
             }
-            shouldShowRequestPermissionRationale(android.Manifest.permission.CALL_PHONE) -> {
-                showPermissionsDeniedInfo()
+            else -> {
+                requestPermissions()
             }
-            else -> requestPermissions()
         }
     }
 
