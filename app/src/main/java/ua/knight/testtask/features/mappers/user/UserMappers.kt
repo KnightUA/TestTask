@@ -11,6 +11,7 @@ object UserMappers {
     fun createMapper(): Mapper<UserEntity, User> = object : Mapper<UserEntity, User> {
         override fun map(input: UserEntity): User {
             return User(
+                input.idEntity.toString(),
                 input.nameEntity.toString(),
                 GlideImageUrl(input.pictureEntity.thumbnailUrl)
             )

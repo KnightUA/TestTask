@@ -16,4 +16,6 @@ class UsersService
     override fun user(): Call<UsersResponse> = usersApi.user()
 
     override fun users(offset: Int): Call<UsersResponse> = usersApi.users(offset)
+
+    override fun users(offset: Int, page: Int): Call<UsersResponse> = usersApi.users(offset, page)
 }

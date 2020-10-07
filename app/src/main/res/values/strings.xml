@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Test Task</string>
     <string name="content_description_user_avatar">User avater</string>
+    <string name="action_retry">Retry</string>
 </resources>

@@ -8,9 +8,14 @@ import ua.knight.testtask.features.gson.user.UsersResponse
 interface UsersApi {
 
     @GET("api")
-    fun user() : Call<UsersResponse>
+    fun user(): Call<UsersResponse>
 
     @GET("api")
-    fun users(@Query("results") offset : Int) : Call<UsersResponse>
+    fun users(@Query("results") offset: Int): Call<UsersResponse>
 
+    @GET("api")
+    fun users(
+        @Query("results") offset: Int,
+        @Query("page") page: Int
+    ): Call<UsersResponse>
 }

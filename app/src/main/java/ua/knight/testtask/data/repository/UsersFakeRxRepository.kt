@@ -16,10 +16,7 @@ import javax.inject.Inject
 class UsersFakeRxRepository
 @Inject constructor(private val applicationContext: Context) : UsersRxRepository {
 
-    override val compositeDisposable: CompositeDisposable
-        get() = CompositeDisposable()
-
-    override fun user(): Single<List<User>?> {
+    override fun user(): Single<User?> {
         return Single.create { emitter ->
             try {
                 val jsonFileString = AssetsUtils.fetchJsonFrom(applicationContext, "user.json")
@@ -33,6 +30,7 @@ class UsersFakeRxRepository
                 else
                     emitter.onSuccess(
                         UserMappers.createNullableInputMapperList().map(response.usersEntities)
+                            .first()
                     )
             } catch (exception: JsonSyntaxException) {
                 emitter.onError(exception)
@@ -53,13 +51,41 @@ class UsersFakeRxRepository
                     emitter.onError(Exception("Users response is null!"))
                 else {
                     val usersSize = response.usersEntities?.size ?: 0
-                    if (offset >= usersSize)
-                        emitter.onError(Exception("Offset of users much greater then size!"))
-                    else
-                        emitter.onSuccess(
-                            UserMappers.createNullableInputMapperList()
-                                .map(response.usersEntities?.subList(0, offset))
-                        )
+                    val fromIndex = 0
+                    val toIndex = if (offset >= usersSize) usersSize else offset
+
+                    emitter.onSuccess(
+                        UserMappers.createNullableInputMapperList()
+                            .map(response.usersEntities?.subList(fromIndex, toIndex))
+                    )
+                }
+            } catch (exception: JsonSyntaxException) {
+                emitter.onError(exception)
+            }
+        }
+    }
+
+    override fun users(offset: Int, page: Int): Single<List<User>?> {
+        return Single.create { emitter ->
+            try {
+                val jsonFileString = AssetsUtils.fetchJsonFrom(applicationContext, "users.json")
+                val gson = Gson()
+                val type: Type = object : TypeToken<UsersResponse?>() {}.type
+
+                val response = gson.fromJson<UsersResponse?>(jsonFileString, type)
+
+                if (response == null)
+                    emitter.onError(Exception("Users response is null!"))
+                else {
+                    val usersSize = response.usersEntities?.size ?: 0
+                    val fromIndex = page * offset - 1
+                    val toIndex =
+                        if (fromIndex + offset >= usersSize) usersSize else fromIndex + offset
+
+                    emitter.onSuccess(
+                        UserMappers.createNullableInputMapperList()
+                            .map(response.usersEntities?.subList(fromIndex, toIndex))
+                    )
                 }
             } catch (exception: JsonSyntaxException) {
                 emitter.onError(exception)
