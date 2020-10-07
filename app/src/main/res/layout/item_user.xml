@@ -32,10 +32,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:gravity="start"
             android:text="@{model.fullName}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:textColor="?colorOnSurface"
-            android:gravity="start"
             app:layout_constraintEnd_toStartOf="@+id/textViewAge"
             app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
             app:layout_constraintTop_toTopOf="@id/imageViewAvatar"
@@ -66,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="@id/textViewFullName"
             app:layout_constraintStart_toStartOf="@id/textViewFullName"
             app:layout_constraintTop_toBottomOf="@id/textViewFullName"
-            tools:text="Name Surname" />
+            tools:text="email@example.com" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

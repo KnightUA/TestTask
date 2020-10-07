@@ -4,8 +4,9 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import java.io.Serializable
 
-interface GlideImage {
+interface GlideImage : Serializable {
     val image: Any?
 
     /**

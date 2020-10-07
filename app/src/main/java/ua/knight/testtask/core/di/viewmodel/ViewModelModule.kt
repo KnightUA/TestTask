@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import ua.knight.testtask.features.viewmodel.user.UserDetailViewModel
 import ua.knight.testtask.features.viewmodel.user.UsersViewModel
 
 @Module
@@ -16,4 +17,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(UsersViewModel::class)
     internal abstract fun bindUsersViewModel(viewModel : UsersViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserDetailViewModel::class)
+    internal abstract fun bindUserDetailViewModel(viewModel : UserDetailViewModel) : ViewModel
 }

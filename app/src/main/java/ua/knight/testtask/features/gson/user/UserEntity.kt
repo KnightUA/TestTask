@@ -7,7 +7,7 @@ data class UserEntity(
     @SerializedName("gender") val gender: String,
     @SerializedName("name") val nameEntity: NameEntity,
     @SerializedName("email") val email: String,
+    @SerializedName("phone") val phone: String,
     @SerializedName("dob") val dateOfBirthdayEntity: DateOfBirthdayEntity,
-    @SerializedName("picture")
-    val pictureEntity: PictureEntity
+    @SerializedName("picture") val pictureEntity: PictureEntity
 )

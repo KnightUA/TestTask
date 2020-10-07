@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.paging.PagedList
 import ua.knight.testtask.core.extentions.observe
 import ua.knight.testtask.core.extentions.viewModel
-import ua.knight.testtask.core.platform.BaseFragment
+import ua.knight.testtask.core.platform.fragment.BaseFragment
+import ua.knight.testtask.core.platform.fragment.BaseNavigationFragment
 import ua.knight.testtask.databinding.FragmentUsersBinding
 import ua.knight.testtask.features.model.loading.State
 import ua.knight.testtask.features.model.user.User
 import ua.knight.testtask.features.view.adapter.paging.user.UserPlAdapter
 import ua.knight.testtask.features.viewmodel.user.UsersViewModel
 
-class UsersFragment : BaseFragment() {
+class UsersFragment : BaseNavigationFragment() {
 
     lateinit var mViewModel: UsersViewModel
     private lateinit var mBinding: FragmentUsersBinding
@@ -52,7 +52,8 @@ class UsersFragment : BaseFragment() {
         mBinding.recyclerViewUsers.adapter = mAdapter.apply {
             retry = { mViewModel.retry() }
             click = { user ->
-                user?.let { Toast.makeText(requireContext(), user.fullName, Toast.LENGTH_SHORT).show() }
+                val directions = UsersFragmentDirections.actionUsersFragmentToUserDetailsFragment().setUser(user)
+                openScreen(directions)
             }
         }
     }

@@ -5,6 +5,7 @@ import ua.knight.testtask.core.mappers.Mapper
 import ua.knight.testtask.core.mappers.list.nullable.BaseNullableInputListMapper
 import ua.knight.testtask.features.gson.user.UserEntity
 import ua.knight.testtask.features.model.user.User
+import ua.knight.testtask.utils.DateTimeUtils
 
 object UserMappers {
 
@@ -13,9 +14,12 @@ object UserMappers {
             return User(
                 input.idEntity.toString(),
                 input.nameEntity.toString(),
+                GlideImageUrl(input.pictureEntity.mediumUrl),
                 input.email,
+                input.phone,
                 input.dateOfBirthdayEntity.age,
-                GlideImageUrl(input.pictureEntity.mediumUrl)
+                input.gender,
+                DateTimeUtils.parseIntoMillis(input.dateOfBirthdayEntity.date)
             )
         }
     }

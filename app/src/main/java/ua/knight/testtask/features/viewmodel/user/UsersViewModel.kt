@@ -14,7 +14,7 @@ import ua.knight.testtask.features.model.user.User
 import javax.inject.Inject
 
 class UsersViewModel
-@Inject constructor(private val repository: UsersRxRepository) : ViewModel() {
+@Inject constructor(repository: UsersRxRepository) : ViewModel() {
 
     var users: LiveData<PagedList<User>>
 

@@ -1,4 +1,4 @@
-package ua.knight.testtask.core.platform
+package ua.knight.testtask.core.platform.fragment
 
 import android.view.View
 import androidx.annotation.StringRes

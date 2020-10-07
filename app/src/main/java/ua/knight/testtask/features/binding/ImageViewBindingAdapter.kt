@@ -9,17 +9,17 @@ object ImageViewBindingAdapter {
 
     @JvmStatic
     @BindingAdapter("app:loadInto")
-    fun loadInto(view: ImageView, image: GlideImage) {
+    fun loadInto(view: ImageView, image: GlideImage?) {
         loadInto(view, image, false)
     }
 
     @JvmStatic
     @BindingAdapter(value = ["app:loadInto", "app:rounded"])
-    fun loadInto(view: ImageView, image: GlideImage, rounded: Boolean) {
+    fun loadInto(view: ImageView, image: GlideImage?, rounded: Boolean) {
         val requestOptions = RequestOptions()
         if (rounded)
             requestOptions.circleCrop()
 
-        image.loadInto(view, customRequestOptions = requestOptions)
+        image?.loadInto(view, customRequestOptions = requestOptions)
     }
 }

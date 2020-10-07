@@ -4,4 +4,9 @@
     <string name="action_retry">Retry</string>
     <string name="format_years">%d years</string>
     <string name="error_general">Uh oh, something bad happened</string>
+    <string name="title_gender">Gender</string>
+    <string name="title_date_of_birthday">Date of birthday</string>
+    <string name="title_phone_number">Phone number</string>
+    <string name="action_call">Call</string>
+    <string name="error_permission_phone_denied">You can\'t use this option, while permission is denied!</string>
 </resources>
