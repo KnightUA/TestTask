@@ -13,7 +13,9 @@ object UserMappers {
             return User(
                 input.idEntity.toString(),
                 input.nameEntity.toString(),
-                GlideImageUrl(input.pictureEntity.thumbnailUrl)
+                input.email,
+                input.dateOfBirthdayEntity.age,
+                GlideImageUrl(input.pictureEntity.mediumUrl)
             )
         }
     }

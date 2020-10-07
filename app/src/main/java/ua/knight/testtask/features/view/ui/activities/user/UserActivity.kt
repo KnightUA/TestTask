@@ -13,6 +13,8 @@ class UserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_user)
+
+        setSupportActionBar(mBinding.toolbar)
     }
 
 }

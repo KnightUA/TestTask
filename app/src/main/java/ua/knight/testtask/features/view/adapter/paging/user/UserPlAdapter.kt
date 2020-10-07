@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ua.knight.testtask.databinding.ItemLoadingBinding
 import ua.knight.testtask.databinding.ItemUserBinding
+import ua.knight.testtask.features.model.loading.Loading
 import ua.knight.testtask.features.model.loading.State
 import ua.knight.testtask.features.model.user.User
 import ua.knight.testtask.features.view.adapter.holders.base.LoadingViewHolder
@@ -62,11 +63,7 @@ class UserPlAdapter
                 }
             }
             is LoadingViewHolder -> {
-                holder.binding?.progressBar?.visibility =
-                    if (state == State.LOADING) View.VISIBLE else View.INVISIBLE
-                holder.binding?.buttonRetry?.visibility =
-                    if (state == State.ERROR) View.VISIBLE else View.INVISIBLE
-
+                holder.binding?.model = Loading(state)
                 holder.binding?.buttonRetry?.setOnClickListener {
                     retry()
                 }

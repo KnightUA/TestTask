@@ -8,7 +8,7 @@ data class NameEntity(
     @SerializedName("last") val last : String
 ) {
     override fun toString(): String {
-        val fullNameBuilder = StringBuilder(title).append(' ').append(first).append(' ').append(last)
+        val fullNameBuilder = StringBuilder(first).append(' ').append(last)
         return fullNameBuilder.toString()
     }
 }

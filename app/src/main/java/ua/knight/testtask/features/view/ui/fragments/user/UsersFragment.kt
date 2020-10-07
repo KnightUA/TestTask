@@ -48,18 +48,18 @@ class UsersFragment : BaseFragment() {
     }
 
     private fun initializeView() {
-        mBinding.recyclerViewUsers.adapter = mAdapter
-        mAdapter.click = { user ->
-            user?.let { Toast.makeText(requireContext(), user.fullName, Toast.LENGTH_SHORT).show() }
+        mBinding.buttonRetry.setOnClickListener { mViewModel.retry() }
+        mBinding.recyclerViewUsers.adapter = mAdapter.apply {
+            retry = { mViewModel.retry() }
+            click = { user ->
+                user?.let { Toast.makeText(requireContext(), user.fullName, Toast.LENGTH_SHORT).show() }
+            }
         }
-        mAdapter.retry = { mViewModel.retry() }
     }
 
     private fun renderState(state: State?) {
-        mBinding.buttonRetry.setOnClickListener { mViewModel.retry() }
-
         mBinding.progressBar.visibility = if (mViewModel.listIsEmpty() && state == State.LOADING) View.VISIBLE else View.GONE
-        mBinding.buttonRetry.visibility = if (mViewModel.listIsEmpty() && state == State.ERROR) View.VISIBLE else View.GONE
+        mBinding.layoutError.visibility = if (mViewModel.listIsEmpty() && state == State.ERROR) View.VISIBLE else View.GONE
 
         if (!mViewModel.listIsEmpty()) {
             mAdapter.setState(state ?: State.DONE)

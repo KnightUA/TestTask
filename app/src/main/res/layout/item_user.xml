@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/imageViewAvatar"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_margin="16dp"
             android:contentDescription="@string/content_description_user_avatar"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,17 +31,41 @@
             android:id="@+id/textViewFullName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginHorizontal="16dp"
             android:text="@{model.fullName}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:textColor="?colorOnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/imageViewAvatar"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="start"
+            app:layout_constraintEnd_toStartOf="@+id/textViewAge"
             app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
             app:layout_constraintTop_toTopOf="@id/imageViewAvatar"
+            tools:text="Name Surname" />
+
+        <TextView
+            android:id="@+id/textViewAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{@string/format_years(model.age)}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textColor="?colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textViewFullName"
+            tools:text="28 years" />
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:text="@{model.email}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:textColor="?colorOnSurface"
+            app:layout_constraintEnd_toEndOf="@id/textViewFullName"
+            app:layout_constraintStart_toStartOf="@id/textViewFullName"
+            app:layout_constraintTop_toBottomOf="@id/textViewFullName"
             tools:text="Name Surname" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
