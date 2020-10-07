@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/imageViewAvatar"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_margin="16dp"
+            android:layout_width="@dimen/image_size_medium"
+            android:layout_height="@dimen/image_size_medium"
+            android:layout_margin="@dimen/margin_dp_16"
             android:contentDescription="@string/content_description_user_avatar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,9 +29,9 @@
 
         <TextView
             android:id="@+id/textViewFullName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/width_dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginHorizontal="@dimen/margin_dp_16"
             android:gravity="start"
             android:text="@{model.fullName}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
@@ -45,8 +45,8 @@
             android:id="@+id/textViewAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/margin_dp_16"
+            android:layout_marginRight="@dimen/margin_dp_16"
             android:text="@{@string/format_years(model.age)}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textColor="?colorPrimary"
@@ -56,9 +56,9 @@
 
         <TextView
             android:id="@+id/textViewEmail"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/width_dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_dp_8"
             android:alpha="0.5"
             android:text="@{model.email}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"

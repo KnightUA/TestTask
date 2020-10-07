@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_size_large">128dp</dimen>
+    <dimen name="image_size_medium">64dp</dimen>
+
+    <dimen name="margin_dp_24">24dp</dimen>
+    <dimen name="margin_dp_16">16dp</dimen>
+    <dimen name="margin_dp_4">4dp</dimen>
+    <dimen name="width_dp_0">0dp</dimen>
+    <dimen name="text_size_sp_18">18sp</dimen>
+    <dimen name="margin_dp_12">12dp</dimen>
+    <dimen name="margin_dp_8">8dp</dimen>
+</resources>

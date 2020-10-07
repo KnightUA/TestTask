@@ -1,3 +1,12 @@
 <resources>
+    <style name="UserDetailsInfoTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:alpha">0.5</item>
+    </style>
 
+    <style name="UserDetailsInfoValue" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_sp_18</item>
+    </style>
 </resources>

@@ -21,9 +21,9 @@
 
             <ImageView
                 android:id="@+id/imageViewAvatar"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_margin="24dp"
+                android:layout_width="@dimen/image_size_large"
+                android:layout_height="@dimen/image_size_large"
+                android:layout_margin="@dimen/margin_dp_24"
                 android:contentDescription="@string/content_description_user_avatar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
                 android:id="@+id/textViewFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_dp_16"
                 android:text="@{model.fullName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 android:textStyle="bold"
@@ -48,7 +48,7 @@
                 android:id="@+id/textViewEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/margin_dp_4"
                 android:alpha="0.5"
                 android:text="@{model.email}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
@@ -59,72 +59,64 @@
                 tools:text="email@example.com" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width_dp_0"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_dp_16"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewEmail">
 
                 <TextView
+                    style="@style/UserDetailsInfoTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:alpha="0.5"
-                    android:text="@string/title_gender"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:textColor="?colorOnSurface" />
+                    android:text="@string/title_gender" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/margin_dp_4"
                     android:text="@{model.gender}"
                     android:textColor="?colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/text_size_sp_18"
                     tools:text="Male" />
 
                 <TextView
+                    style="@style/UserDetailsInfoTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:alpha="0.5"
-                    android:text="@string/title_date_of_birthday"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:textColor="?colorOnSurface" />
+                    android:layout_marginTop="@dimen/margin_dp_12"
+                    android:text="@string/title_date_of_birthday" />
 
                 <TextView
+                    style="@style/UserDetailsInfoValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textColor="?colorPrimary"
-                    android:textSize="18sp"
+                    android:layout_marginTop="@dimen/margin_dp_4"
                     app:dateOfBirthday="@{model.dateOfBirthdayInMillis}"
                     tools:text="2020-10-13" />
 
                 <TextView
+                    style="@style/UserDetailsInfoTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:alpha="0.5"
-                    android:text="@string/title_phone_number"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:textColor="?colorOnSurface" />
+                    android:layout_marginTop="@dimen/margin_dp_12"
+                    android:text="@string/title_phone_number" />
 
                 <TextView
+                    style="@style/UserDetailsInfoValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/margin_dp_4"
                     android:text="@{model.phoneNumber}"
-                    android:textColor="?colorPrimary"
-                    android:textSize="18sp"
                     tools:text="+1 (754) 666-1713" />
 
                 <Button
                     android:id="@+id/buttonCall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/margin_dp_24"
                     android:text="@string/action_call" />
 
             </LinearLayout>
